@@ -1,0 +1,31 @@
+﻿@model Movie
+@* ^ This imports the class as well as any object we pull in*@
+
+<h2>Create New Movie</h2>
+<p>To setup data annotations on a form you need 2 things: </p>
+<ul>
+    <li>To import the desired model at the top of the page</li>
+    <li>You need to import the built Javascript Validation file, which comes with .Net </li>
+</ul>
+
+<!--Below we point to the action. Then, note the 'post' below:-->
+<form asp-action="Create" method="post">
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" value="@Model.Title" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+
+    <label asp-for="Year" class="control-label"></label>
+    <input asp-for="Year" class="form-control" value="@Model.Year" />
+    <span asp-validation-for="Year" class="text-danger"></span>
+
+    <label asp-for="Runtime" class="control-label"></label>
+    <input asp-for="Runtime" class="form-control" value="@Model.Runtime" />
+    <span asp-validation-for="Runtime" class="text-danger"></span>
+
+    <label asp-for="Genre" class="control-label"></label>
+    <input asp-for="Genre" class="form-control" value="@Model.Genre" />
+    <span asp-validation-for="Genre" class="text-danger"></span>
+
+    <!--You still have access to all of your usual HTML elements with data annotations-->
+    <input type="submit" />
+</form>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Movie>
+
+@foreach(Movie m in Model)
+            {
+<div style="border: solid 2px black">
+    <h3>Title: @m.Title</h3>
+    <p>Movie Id: @m.Id</p>
+    <p>Genre: @m.Genre</p>
+    <p>Runtime: @m.Runtime</p>
+    <p>Release Year: @m.Year</p>
+    <!--asp-route-varname allows us to put parameters into a link, and it hsould match the parameter for the action you call.-->
+    <!--e.g., Details needs an id to run, so we make asp-route-id and we pull the value from our movie list.-->
+    <!--Mostly used for non-objects.-->
+    <a asp-action="Details" asp-controller="Home" asp-route-id="@m.Id"><p>Details</p></a>
+    <a asp-action="Delete" asp-controller="Home" asp-route-id="@m.Id"><p>Delete</p></a>
+    <a asp-action="Edit" asp-controller="Home" asp-route-id="@m.Id"><p>Edit</p></a>
+    <br />
+</div>
+            }
+
+<a asp-action="Create" asp-controller="Home">Create New Movie</a>
